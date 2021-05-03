@@ -49,6 +49,7 @@ public class Main {
 
 
     }
+//
 
     public static void printBeliefBase(ArrayList<Belief> beliefBase) {
         boolean firstTime = true;
