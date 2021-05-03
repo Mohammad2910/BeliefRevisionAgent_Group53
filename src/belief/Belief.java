@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Belief {
 
     private String belief;
-    private int order;
+    private double order;
 
     public Belief(){
     }
@@ -18,11 +18,11 @@ public class Belief {
         this.belief = belief;
     }
 
-    public int getOrder() {
+    public double getOrder() {
         return order;
     }
 
-    public void setOrder(int order) {
+    public void setOrder(double order) {
         this.order = order;
     }
 }

@@ -17,6 +17,17 @@ public class BeliefBase {
 
     public void revise(String input) {
         ArrayList<String> pInput = parseInput(input);
+        Belief newBelief = new Belief();
+
+        for (String clause: pInput) {
+            System.out.println("Enter plausibility for: " + clause);
+            Double plausibility = scanner.nextDouble();
+
+            newBelief.setBelief(clause);
+            newBelief.setOrder(plausibility);
+            beliefList.add(newBelief);
+        }
+
 
         /*for (String clause : pInput) {
 
@@ -30,7 +41,7 @@ public class BeliefBase {
 
     public void expand(String input) {
         ArrayList<String> pInput = parseInput(input);
-        beliefBaseList.addAll(pInput);
+        //beliefBaseList.addAll(pInput);
     }
 
     public void clear() {
@@ -38,9 +49,9 @@ public class BeliefBase {
         beliefList.clear();
     }
 
-    public ArrayList<String> getBeliefBaseList() {
+    /*public ArrayList<String> getBeliefBaseList() {
         return beliefBaseList;
-    }
+    }*/
 
     public ArrayList<Belief> getBeliefList() {
         return beliefList;

@@ -54,7 +54,7 @@ public class Main {
         boolean firstTime = true;
         System.out.println("The belief base contains: ");
         for (Belief belief : beliefBase) {
-            if (!firstTime) System.out.print(" & ");
+            if (!firstTime) System.out.print(" , ");
             System.out.print(belief.getBelief());
             firstTime= false;
         }
