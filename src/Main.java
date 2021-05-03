@@ -1,3 +1,6 @@
+import belief.Belief;
+import belief.BeliefBase;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -22,19 +25,20 @@ public class Main {
                 bb.clear();
 
             } else if (menuInput.startsWith("p")) {
-                printBeliefBase(bb.getBeliefBaseList());
+                printBeliefBase(bb.getBeliefList());
 
             } else if (menuInput.startsWith("r")) {
                 System.out.println("What would you like to Revise?");
                 String revisionInput = scanner.nextLine();
                 System.out.println("Revisioninput: " + revisionInput);
+
                 bb.revise(revisionInput);
-                printBeliefBase(bb.getBeliefBaseList());
+                printBeliefBase(bb.getBeliefList());
 
             } else if (menuInput.startsWith("c")) {
                 String contractionInput = scanner.nextLine();
                 bb.contract(contractionInput);
-                printBeliefBase(bb.getBeliefBaseList());
+                printBeliefBase(bb.getBeliefList());
 
             } else if (menuInput.startsWith("q")) {
                 quit = true;
@@ -46,15 +50,24 @@ public class Main {
 
     }
 
-    public static void printBeliefBase(ArrayList<String> beliefBase) {
+    public static void printBeliefBase(ArrayList<Belief> beliefBase) {
         boolean firstTime = true;
         System.out.println("The belief base contains: ");
-        for (String belief : beliefBase) {
+        for (Belief belief : beliefBase) {
+            if (!firstTime) System.out.print(" & ");
+            System.out.print(belief.getBelief());
+            firstTime= false;
+        }
+        System.out.println("\n--------------------------");
+
+        /*boolean firstTime = true;
+        System.out.println("The belief base contains: ");
+       for (String belief : beliefBase) {
             if (!firstTime) System.out.print(" & ");
             System.out.print(belief);
             firstTime= false;
         }
 
-        System.out.println("\n--------------------------");
+        System.out.println("\n--------------------------");*/
     }
 }
