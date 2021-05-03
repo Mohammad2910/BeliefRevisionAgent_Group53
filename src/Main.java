@@ -6,7 +6,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         boolean quit = false;
         String menuInput;
-        BeliefBase bb = new BeliefBase();
+        belief.BeliefBase bb = new belief.BeliefBase();
 
         while (!quit) {
             System.out.println("Actions available:");
