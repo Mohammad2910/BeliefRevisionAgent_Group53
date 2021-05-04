@@ -15,16 +15,41 @@ public class BeliefBase {
 
     }
 
-    public void revise(String input) {
+    public void revise(String input) { // indtaster: a   KB: {-a}
         ArrayList<String> pInput = parseInput(input);
-        Belief newBelief = new Belief();
+        Belief newBelief;
+
+        if (pInput.size() == 1 && pInput.get(0).length() == 1) {
+            for (Belief beliefs: beliefList) {
+                if(beliefs.getBelief().equals("-" + pInput.get(0))){
+                    // Hvis det omvendte af en proposition findes
+                    // så skal vi enten tage den nye proposition eller beholde den gamle
+                    // ved ikke hvad er teoretisk korrekt.
+                    System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+                    System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+                    System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+                    System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+                }
+            }
+        } else if (pInput.size() == 1 && pInput.get(0).length() == 2) { // -a
+            for (Belief beliefs: beliefList) {
+                if(beliefs.getBelief().equals(String.valueOf(pInput.get(0).charAt(1)))){
+                    // Hvis det omvendte af en proposition findes
+                    // så skal vi enten tage den nye proposition eller beholde den gamle
+                    // ved ikke hvad er teoretisk korrekt.
+                    System.out.println("-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+                    System.out.println("-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+                    System.out.println("-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+                    System.out.println("-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+                }
+            }
+        }
 
         for (String clause: pInput) {
             System.out.println("Enter plausibility for: " + clause);
-            Double plausibility = scanner.nextDouble();
+            double plausibility = scanner.nextDouble();
 
-            newBelief.setBelief(clause);
-            newBelief.setOrder(plausibility);
+            newBelief = new Belief(clause, plausibility);
             beliefList.add(newBelief);
         }
 

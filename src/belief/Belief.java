@@ -1,13 +1,13 @@
 package belief;
 
-import java.util.ArrayList;
-
 public class Belief {
 
     private String belief;
     private double order;
 
-    public Belief(){
+    public Belief(String belief, double order){
+        this.belief = belief;
+        this.order = order;
     }
 
     public String getBelief() {
